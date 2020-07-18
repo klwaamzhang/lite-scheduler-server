@@ -146,18 +146,18 @@ app.post("/retrieveUserData", function (req, res) {
     (data) => {
       if (!data) {
         res.json({
-          msg: 0,
+          msg: "No Data Retrieved",
         });
       } else {
         res.json({
           ...data,
-          msg: "successful.",
+          msg: "Data Retrieved Successful",
         });
       }
     },
     (err) => {
       res.json({
-        msg: -1,
+        msg: "Data Retrieved Error",
       });
     }
   );
@@ -248,7 +248,7 @@ app.post("/signup", function (req, res) {
         userCollection.insertOne(userData).then(
           (data) => {
             res.json({
-              msg: 1, // succeed
+              msg: "SignUp Succeeded", // succeed
             });
           },
           (err) => {
@@ -287,7 +287,7 @@ app.post("/signin", function (req, res) {
         } else {
           res.json({
             ...data,
-            msg: 1,
+            msg: "SignIn Succeeded",
           });
         }
       },
