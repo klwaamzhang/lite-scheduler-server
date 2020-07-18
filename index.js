@@ -332,6 +332,14 @@ app.post("/updateUserInfo", function (req, res) {
     );
 });
 
+function cleanup() {
+  console.log("clean up db connection...");
+  client.close();
+}
+
+process.on("SIGINT", cleanup);
+process.on("SIGTERM", cleanup);
+
 app.listen(PORT, function () {
   console.log(`Listening on ${PORT}`);
 });
