@@ -1,6 +1,7 @@
 // import express, cors and body-parser
 
 const PORT = process.env.PORT || 8555;
+const DEV_ENV = process.env.NODE_ENV === "development" ? true : false;
 
 var express = require("express");
 var app = express();
