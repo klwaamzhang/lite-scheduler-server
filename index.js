@@ -130,7 +130,9 @@ client.connect((err) => {
 });
 
 app.get("/", function (req, res) {
-  res.render("index");
+  res.json({
+    msg: "API ok.",
+  });
 });
 
 app.post("/retrieveUserData", function (req, res) {
