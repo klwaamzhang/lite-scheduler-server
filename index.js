@@ -21,6 +21,8 @@ const client = new MongoClient(uri, {
 app.use(cors());
 app.use(bodyParser.json());
 
+app.options("*", cors());
+
 // create email transport for automatically email sending function
 const transporter = nodemailer.createTransport({
   service: "gmail",
