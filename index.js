@@ -1,4 +1,7 @@
 // import express, cors and body-parser
+
+const PORT = process.env.PORT || 8555;
+
 var express = require("express");
 var app = express();
 var cors = require("cors");
@@ -326,6 +329,6 @@ app.post("/updateUserInfo", function (req, res) {
     );
 });
 
-app.listen(8555, function () {
-  console.log("Server app listening on http://localhost:8555/");
+app.listen(PORT, function () {
+  console.log(`Listening on ${PORT}`);
 });
