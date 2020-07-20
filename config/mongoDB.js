@@ -1,5 +1,5 @@
 const { MongoClient } = require("mongodb");
-const sendEmail = require("./sendEmail");
+const sendEmail = require("../serverFunctionality/sendEmail");
 
 module.exports = function () {
   const uri = `${process.env.MONGODB_URL}`;
