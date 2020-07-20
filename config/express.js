@@ -5,6 +5,7 @@ const tasks = require("node-schedule");
 const nodemailer = require("nodemailer");
 const ObjectID = require("mongodb").ObjectID;
 const MongoClient = require("mongodb").MongoClient;
+const transporter = require("./transporter");
 
 module.exports = function () {
   const app = express();
@@ -19,15 +20,6 @@ module.exports = function () {
   app.use(bodyParser.json());
 
   app.options("*", cors());
-
-  // create email transport for automatically email sending function
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: `${process.env.GMAIL_USERNAME}`,
-      pass: `${process.env.GMAIL_PASSWORD}`,
-    },
-  });
 
   client.connect((err) => {
     if (err) {
