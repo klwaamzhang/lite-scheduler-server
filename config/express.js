@@ -2,36 +2,22 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const { ObjectID } = require("mongodb");
-// const sendEmail = require("./sendEmail");
 const client = require("./mongoDB")();
 
 module.exports = function () {
   const app = express();
-
-  //   const uri = `${process.env.MONGODB_URL}`;
-  //   const client = new MongoClient(uri, {
-  //     useNewUrlParser: true,
-  //     useUnifiedTopology: true,
-  //   });
 
   app.use(cors());
   app.use(bodyParser.json());
 
   app.options("*", cors());
 
-  //   client.connect((err) => {
-  //     if (err) {
-  //       console.log("unable to connect to database.");
-  //     } else {
-  //       sendEmail(client);
-  //     }
+  //   app.get("/", function (req, res) {
+  //     res.json({
+  //       msg: "API ok.",
+  //     });
   //   });
-
-  app.get("/", function (req, res) {
-    res.json({
-      msg: "API ok.",
-    });
-  });
+  require("../apis/serverIndex")(app);
 
   app.post("/retrieveUserData", function (req, res) {
     const body = req.body;
