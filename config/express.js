@@ -2,7 +2,6 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const tasks = require("node-schedule");
-const nodemailer = require("nodemailer");
 const ObjectID = require("mongodb").ObjectID;
 const MongoClient = require("mongodb").MongoClient;
 const transporter = require("./transporter");
