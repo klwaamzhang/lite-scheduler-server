@@ -18,7 +18,13 @@ module.exports = function () {
   require("../apis/signIn")(app, client);
   require("../apis/updateUserInfo")(app, client);
 
-  require("./closeMongoDB")(client);
+  function cleanup() {
+    console.log("clean up db connection...");
+    client.close();
+  }
+
+  process.on("SIGINT", cleanup);
+  process.on("SIGTERM", cleanup);
 
   return app;
 };
