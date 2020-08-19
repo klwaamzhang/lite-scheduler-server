@@ -13,7 +13,7 @@
 * Update your info or switch your account to any type of the user layout to fit what you need
 * <del>Send Email to you before an important event is coming</del> (still in development)
 
-## Web back end end techniques
+## Web back end end technologies
  In this app, we use:
  * NodeJS and ExpressJS for APIs request and response
  * RESTful API and Mongo query to request and retrieve data
